@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Nav';
 
 import Catalog from './pages/Catalog';
-import ProductDetail from './pages/ProductDetail';
+import Product from './pages/Product';
 
 function Routes() {
   return (
@@ -12,7 +12,7 @@ function Routes() {
     <Navbar />
       <Switch>
         <Route path="/" exact component={Catalog} />
-        <Route path="/product/:name" component={ProductDetail} />
+        <Route path="/produto/:name/:id" component={Product} />
       </Switch>
     </BrowserRouter>
   )
