@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setProducts } from '../store/actions/products';
@@ -7,8 +8,10 @@ import api from '../services/api';
 
 import Product from '../components/Product';
 
-function Home() {
+function Catalog() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const data = useSelector(state => state.products);
 
   useEffect(() => {
@@ -35,4 +38,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Catalog;
