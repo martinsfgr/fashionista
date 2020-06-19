@@ -5,23 +5,33 @@ import { setProducts } from '../store/actions/products';
 
 import api from '../services/api';
 
+import Product from '../components/Product';
+
 function Home() {
   const dispatch = useDispatch();
-  const products = useSelector(state => state.products);
+  const data = useSelector(state => state.products);
 
   useEffect(() => {
-    api.get('catalog')
-      .then(response => {
-        dispatch(setProducts(response.data))
-      });
+    const getProducts = async () => {
+      const response = await api.get('catalog');
+      dispatch(setProducts(response.data));
+    }
+
+    getProducts();
   }, [dispatch]);
 
-  console.log(products);
-
   return (
-    <div>
-      
-    </div>
+    <section>
+      <p className="catalog__length">
+        {data.products.length} itens
+      </p>
+
+      <ul className="catalog">
+        {data.products.map(product => (
+          <Product product={product} />
+        ))}
+      </ul>
+    </section>
   )
 }
 
