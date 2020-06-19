@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setProducts } from '../store/actions/products';
@@ -10,7 +9,6 @@ import Product from '../components/Product';
 
 function Catalog() {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const data = useSelector(state => state.products);
 
@@ -31,7 +29,7 @@ function Catalog() {
 
       <ul className="catalog">
         {data.products.map(product => (
-          <Product product={product} />
+          <Product product={product} key={product.code_color} />
         ))}
       </ul>
     </section>
