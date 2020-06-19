@@ -1,6 +1,6 @@
-export const setProducts = (data) => {
+export const setProducts = (products) => {
   return {
     type: 'SET_PRODUCTS',
-    payload: data,
+    payload: products,
   }
 }

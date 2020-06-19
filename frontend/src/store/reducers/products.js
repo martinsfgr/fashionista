@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  products: []
+  products: [],
 }
 
 const productsReducer = (state=INITIAL_STATE, action) => {
@@ -9,7 +9,7 @@ const productsReducer = (state=INITIAL_STATE, action) => {
     case 'SET_PRODUCTS':
       return {
         ...state,
-        products: payload.data
+        products: payload,
       }
     
     default:
