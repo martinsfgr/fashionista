@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import api from '../services/api';
 
-function ProductDetail () {
+import ProductDetail from '../components/ProductDetail';
+
+function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
 
@@ -16,11 +18,11 @@ function ProductDetail () {
     getProduct();
   }, []);
 
-  return (
-    <div>
+  console.log(product);
 
-    </div>
+  return (
+    <ProductDetail product={product} />
   )
 }
 
-export default ProductDetail;
+export default Product;
