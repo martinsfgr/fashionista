@@ -5,7 +5,7 @@ import { setProducts } from '../store/actions/products';
 
 import api from '../services/api';
 
-import Product from '../components/Product';
+import CatalogProducts from '../components/CatalogProducts';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function Catalog() {
 
       <ul className="catalog">
         {data.products.map(product => (
-          <Product product={product} key={product.code_color} />
+          <CatalogProducts product={product} key={product.code_color} />
         ))}
       </ul>
     </section>
