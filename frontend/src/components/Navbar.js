@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +6,17 @@ import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../assets/logo.png';
 
 function Nav() {
+  const [toggleSearch, setToggleSearch] = useState(false);
+  const [toggleCart, setToggleCart] = useState(false);
+
+  const handleSearch = () => {
+    toggleSearch ? setToggleSearch(false) : setToggleSearch(true);
+  }
+
+  const handleCart = () => {
+    toggleCart ? setToggleCart(false) : setToggleCart(true);
+  }
+
   return (
     <nav>
       <div className="navbar__infos">
@@ -19,8 +30,17 @@ function Nav() {
       </div>
       
       <div className="navbar__icons">
-        <FontAwesomeIcon icon={faSearch} className="fa-lg search-icon" />
-        <FontAwesomeIcon icon={faShoppingBag} className="fa-lg cart-icon" />
+        <FontAwesomeIcon 
+          icon={faSearch}
+          className="fa-lg search-icon"
+          onClick={() => handleSearch()}
+        />
+
+        <FontAwesomeIcon 
+          className="fa-lg cart-icon" 
+          icon={faShoppingBag} 
+          onClick={() => handleCart()}
+        />
       </div>
     </nav>
   )
