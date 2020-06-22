@@ -39,4 +39,13 @@ nav {
     nav .navbar__icons .search-icon, nav .navbar__icons .cart-icon {
       cursor: pointer; }
 
+.search__container {
+  background-color: grey;
+  display: none;
+  height: 100vh;
+  position: fixed;
+  width: 100vw; }
+  .search__container.active {
+    display: inline; }
+
 /*# sourceMappingURL=index.css.map */

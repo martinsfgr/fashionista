@@ -1,26 +1,26 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleCart } from '../store/actions/cart';
+import { toggleSearch } from '../store/actions/search';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function Cart () {
   const dispatch = useDispatch();
-  const isCartActive = useSelector(state => state.cart.isActive);
+  const isSearchActive = useSelector(state => state.search.isActive);
 
-  const handleCart = () => {
-    isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
+  const handleSearch = () => {
+    isSearchActive ? dispatch(toggleSearch(false)) : dispatch(toggleSearch(true));
   }
 
   return (
-    <div className={isCartActive ? "cart__container active" : "cart__container"}>
-      <p>Carrinho</p>
+    <div className={isSearchActive ? "search__container active" : "search__container"}>
+      <p>Buscar Produto(s)</p>
       <FontAwesomeIcon 
         icon={faTimes}
         className="fa-lg times"
-        onClick={() => handleCart()}
+        onClick={() => handleSearch()}
       />
     </div>
   )

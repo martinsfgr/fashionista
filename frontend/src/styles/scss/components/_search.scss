@@ -1,0 +1,11 @@
+.search__container {
+  background-color: grey;
+  display: none;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+
+  &.active {
+    display: inline;
+  }
+}
