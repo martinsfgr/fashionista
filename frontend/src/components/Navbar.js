@@ -51,7 +51,7 @@ function Nav() {
             className="fa-lg search-icon"
             icon={faSearch}
             onClick={() => handleSearch()}
-            />
+          />
 
           <FontAwesomeIcon 
             className="fa-lg cart-icon" 

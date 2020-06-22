@@ -15,6 +15,9 @@ body {
   .cart__container.active {
     display: inline; }
 
+.catalog__product {
+  border: 2px solid red; }
+
 nav {
   align-items: center;
   display: flex;
