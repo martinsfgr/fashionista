@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { toggleCart } from '../store/actions/cart'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
@@ -8,15 +11,18 @@ import Cart from './Cart';
 import logoImg from '../assets/logo.png';
 
 function Nav() {
+  const dispatch = useDispatch();
+  const isCartActive = useSelector(state => state.cart.isActive);
+
   const [toggleSearch, setToggleSearch] = useState(false);
-  const [toggleCart, setToggleCart] = useState(false);
+
+  const handleCart = () => {
+    isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
+    console.log(isCartActive);
+  }
 
   const handleSearch = () => {
     toggleSearch ? setToggleSearch(false) : setToggleSearch(true);
-  }
-
-  const handleCart = () => {
-    toggleCart ? setToggleCart(false) : setToggleCart(true);
   }
 
   return (
@@ -41,13 +47,13 @@ function Nav() {
 
           <FontAwesomeIcon 
             className="fa-lg cart-icon" 
-            icon={faShoppingBag} 
+            icon={faShoppingBag}
             onClick={() => handleCart()}
-            />
+          />
         </div>
       </nav>
 
-      <Cart isActive={toggleCart} />
+      <Cart />
     </div>
   )
 }
