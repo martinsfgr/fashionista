@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { toggleCart } from '../store/actions/cart';
 import { toggleSearch } from '../store/actions/search';
@@ -16,6 +17,12 @@ function Nav() {
   const dispatch = useDispatch();
   const isCartActive = useSelector(state => state.cart.isActive);
   const isSearchActive = useSelector(state => state.search.isActive);
+ 
+  const history = useHistory();
+
+  const pushToHome = () => {
+    history.push('/');
+  }
 
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
@@ -30,12 +37,13 @@ function Nav() {
       <nav>
         <div className="navbar__infos">
           <img
+            className="company__logo"
             src={logoImg} 
             alt="Ilustração de um cabide representado a logo da Fashionista"
-            className="company__logo"
-            />
+            onClick={() => pushToHome()}
+          />
 
-          <p className="company__name">FASHIONISTA</p>
+          <p className="company__name" onClick={() => pushToHome()}>FASHIONISTA</p>
         </div>
         
         <div className="navbar__icons">
