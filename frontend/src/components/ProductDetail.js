@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function ProductDetail ({ product }) {
+  const [size, setSize] = useState('');
+
+  const handleSize = (size) => {
+    setSize(size);
+  }
+
+  console.log(size);
 
   return (
     <div className="product__container">
@@ -26,7 +33,12 @@ function ProductDetail ({ product }) {
         <div className="product__size">
           {product.sizes ? product.sizes.map(size => {
             if (size.available) {
-              return <button key={size.sku}>{size.size}</button>
+              return <button 
+                        key={size.sku}
+                        onClick={() => handleSize(size.size)}
+                      >
+                        {size.size}
+                      </button>
             }
           }) : null}
         </div>
