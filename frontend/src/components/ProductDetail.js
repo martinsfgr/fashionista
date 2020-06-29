@@ -1,6 +1,7 @@
 import React from 'react';
 
 function ProductDetail ({ product }) {
+
   return (
     <div className="product__container">
       <div className="product__image">
@@ -23,9 +24,11 @@ function ProductDetail ({ product }) {
         </div>
 
         <div className="product__size">
-          <button>P</button>
-          <button>M</button>
-          <button>G</button>
+          {product.sizes ? product.sizes.map(size => {
+            if (size.available) {
+              return <button key={size.sku}>{size.size}</button>
+            }
+          }) : null}
         </div>
 
         <button>Adicionar ao carrinho</button>
