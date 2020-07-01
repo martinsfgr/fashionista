@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setProducts } from '../store/actions/products';
 
-import api from '../services/api';
+import catalogData from '../data';
 
 import CatalogProducts from '../components/CatalogProducts';
 
@@ -13,9 +13,9 @@ function Catalog() {
   const data = useSelector(state => state.products);
 
   useEffect(() => {
-    const getProducts = async () => {
-      const response = await api.get('catalog');
-      dispatch(setProducts(response.data));
+    const getProducts = () => {
+      const response = catalogData;
+      dispatch(setProducts(response));
     }
 
     getProducts();
