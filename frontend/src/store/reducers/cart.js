@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   isActive: false,
+  products: [],
 }
 
 const cartReducer = (state=INITIAL_STATE, action) => {
@@ -11,6 +12,12 @@ const cartReducer = (state=INITIAL_STATE, action) => {
         ...state,
         isActive: payload,
       }
+    
+    case 'ADD_PRODUCT_TO_CART':
+      return {
+        ...state,
+        products: payload,
+      }  
     
     default:
       return state
