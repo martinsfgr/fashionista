@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addToCart } from '../store/actions/cart';
 
 function ProductDetail ({ product }) {
+  const dispatch = useDispatch();
+
+  const cart = useSelector(state => state.cart);
+
   const [size, setSize] = useState('');
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState('1');
 
   const handleSize = (size) => {
     setSize(size);
@@ -12,8 +19,18 @@ function ProductDetail ({ product }) {
     setQuantity(quantity);
   }
 
+  const handleCart = (product, size, quantity) => {
+    dispatch(addToCart({
+      product: product,
+      size: size,
+      quantity: quantity,
+    }))
+  }
+
+  console.log('O produto é', product);
   console.log(size);
   console.log(quantity);
+  console.log('Carrinho: ', cart.products);
 
   return (
     <div className="product__container">
@@ -48,7 +65,7 @@ function ProductDetail ({ product }) {
         </div>
 
         <div className="product_quantity">
-          <label for="quantity">Selecione a quantidade:</label>
+          <label>Selecione a quantidade:</label>
           <input 
             type="number" 
             id="quantity" 
@@ -59,7 +76,7 @@ function ProductDetail ({ product }) {
           />
         </div>
 
-        <button>Adicionar ao carrinho</button>
+        <button onClick={() => handleCart(product, size, quantity)}>Adicionar ao carrinho</button>
       </div>
 
     </div>
