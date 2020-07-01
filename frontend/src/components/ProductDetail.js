@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 
 function ProductDetail ({ product }) {
   const [size, setSize] = useState('');
+  const [quantity, setQuantity] = useState(1);
 
   const handleSize = (size) => {
     setSize(size);
   }
 
+  const handleQuantity = (quantity) => {
+    setQuantity(quantity);
+  }
+
   console.log(size);
+  console.log(quantity);
 
   return (
     <div className="product__container">
@@ -33,14 +39,24 @@ function ProductDetail ({ product }) {
         <div className="product__size">
           {product.sizes ? product.sizes.map(size => {
             if (size.available) {
-              return <button 
-                        key={size.sku}
-                        onClick={() => handleSize(size.size)}
-                      >
-                        {size.size}
-                      </button>
+              return <button
+                key={size.sku}
+                onClick={() => handleSize(size.size)}
+              >{size.size}</button>
             }
           }) : null}
+        </div>
+
+        <div className="product_quantity">
+          <label for="quantity">Selecione a quantidade:</label>
+          <input 
+            type="number" 
+            id="quantity" 
+            defaultValue="1" 
+            min="1" 
+            max="5"
+            onChange={() => handleQuantity(event.target.value)}
+          />
         </div>
 
         <button>Adicionar ao carrinho</button>
