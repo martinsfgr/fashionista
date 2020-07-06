@@ -18,7 +18,16 @@ const cartReducer = (state=INITIAL_STATE, action) => {
       return {
         ...state,
         products: newProduct,
-      }  
+      }
+    
+    case 'EDIT_QUANTITY':
+      let cartProducts = state.products;
+      return {
+        ...state,
+        products: cartProducts.map(item => {
+          return {...item, quantity: item.quantity + 99}
+        })
+      }
     
     default:
       return state

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addToCart } from '../store/actions/cart';
+import { addToCart, editProductQuantity } from '../store/actions/cart';
 
 function ProductDetail ({ product }) {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ function ProductDetail ({ product }) {
   const cart = useSelector(state => state.cart);
 
   const [size, setSize] = useState('');
-  const [quantity, setQuantity] = useState('1');
+  const [quantity, setQuantity] = useState(1);
 
   const handleSize = (size) => {
     setSize(size);
@@ -20,7 +20,15 @@ function ProductDetail ({ product }) {
   }
 
   const handleCart = (product, size, quantity) => {
-    dispatch(addToCart({
+
+    const matchProduct = cart.products.find(item => item.product.name === product.name && item.size === size);
+    console.log('Tem um igual no carrinho', matchProduct);
+
+    matchProduct ? dispatch(editProductQuantity({
+      product: product,
+      size: size,
+      quantity: quantity,
+    })) : dispatch(addToCart({
       product: product,
       size: size,
       quantity: quantity,
@@ -72,7 +80,7 @@ function ProductDetail ({ product }) {
             defaultValue="1" 
             min="1" 
             max="5"
-            onChange={() => handleQuantity(event.target.value)}
+            onChange={() => handleQuantity(Number(event.target.value))}
           />
         </div>
 

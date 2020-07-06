@@ -11,3 +11,10 @@ export const addToCart = (product={}) => {
     payload: product,
   }
 }
+
+export const editProductQuantity = (product={}) => {
+  return {
+    type: 'EDIT_QUANTITY',
+    payload: product,
+  }
+}
