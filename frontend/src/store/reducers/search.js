@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   isActive: false,
+  products: [],
 }
 
 const searchReducer = (state=INITIAL_STATE, action) => {
@@ -11,6 +12,13 @@ const searchReducer = (state=INITIAL_STATE, action) => {
         ...state,
         isActive: payload,
       }
+    
+    case 'SEARCH_PRODUCTS':
+      return {
+        ...state,
+        products: payload
+      }
+      
     
     default:
       return state

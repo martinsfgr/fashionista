@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { toggleCart } from '../store/actions/cart';
@@ -26,7 +26,7 @@ function CartProduct ({ product, size, quantity }) {
   return (
     <li className="cart__product" onClick={() => handleProductDetails(product)}>
       <div className="cart__product__apresentation">
-        {/* <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} /> */}
+        <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} />
       </div>
       <div className="cart__product__infos">
         <div>

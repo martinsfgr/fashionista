@@ -4,3 +4,10 @@ export const toggleSearch = (status) => {
     payload: status,
   }
 }
+
+export const searchProducts = (products) => {
+  return {
+    type: 'SEARCH_PRODUCTS',
+    payload: products,
+  }
+}
