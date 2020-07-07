@@ -7,6 +7,19 @@ const formatProductName = (productName) => {
   return lowerCaseName;
 }
 
+const formatProductPrice = (productPrice) => {
+  return productPrice.split(' ')[1].replace(',', '.');
+}
+
+const convertToBRL = (number) => {
+  return Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(number);
+}
+
 export {
-  formatProductName
+  formatProductName,
+  formatProductPrice,
+  convertToBRL,
 }
