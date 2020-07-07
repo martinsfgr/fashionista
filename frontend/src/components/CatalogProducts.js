@@ -5,7 +5,7 @@ import { formatProductName } from '../utils';
 
 import placeholderImg from '../assets/product-placeholder.png';
 
-function Product ({ product }) {
+function CatalogProduct ({ product }) {
   const history = useHistory();
 
   const handleProductDetails = (product) => {
@@ -30,4 +30,4 @@ function Product ({ product }) {
   )
 }
 
-export default Product;
+export default CatalogProduct;
