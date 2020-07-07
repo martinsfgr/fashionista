@@ -22,7 +22,6 @@ function ProductDetail ({ product }) {
   const handleCart = (product, size, quantity) => {
 
     const matchProduct = cart.products.find(item => item.product.name === product.name && item.size === size);
-    console.log('Tem um igual no carrinho', matchProduct);
 
     matchProduct ? dispatch(editProductQuantity({
       product: product,

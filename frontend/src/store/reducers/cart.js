@@ -22,10 +22,15 @@ const cartReducer = (state=INITIAL_STATE, action) => {
     
     case 'EDIT_QUANTITY':
       let cartProducts = state.products;
+
       return {
         ...state,
         products: cartProducts.map(item => {
-          return {...item, quantity: item.quantity + 99}
+          if (payload.product.name === item.product.name && payload.size === item.size) {
+            return {...item, quantity: item.quantity + payload.quantity}
+          }
+
+          return {...item}
         })
       }
     
