@@ -1,26 +1,32 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { formatProductName } from '../utils';
+import { toggleCart } from '../store/actions/cart';
+
+import { formatProductName, formatProductPrice, convertToBRL } from '../utils';
 
 import placeholderImg from '../assets/product-placeholder.png';
 
 function CartProduct ({ product, size, quantity }) {
+  const dispatch = useDispatch();
   const history = useHistory();
 
-  const totalPrice = size * quantity;
+  const price = formatProductPrice(product.actual_price);
+  const totalPrice = convertToBRL(price * quantity);
 
   const handleProductDetails = (product) => {
     const productName = formatProductName(product.name);
     const id = product.style;
 
-    history.push(`produto/${productName}/${id}/`);
+    history.push(`/produto/${productName}/${id}/`);
+    dispatch(toggleCart(false));
   }
 
   return (
     <li className="cart__product" onClick={() => handleProductDetails(product)}>
       <div className="cart__product__apresentation">
-        <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} />
+        {/* <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} /> */}
       </div>
       <div className="cart__product__infos">
         <div>
@@ -29,7 +35,7 @@ function CartProduct ({ product, size, quantity }) {
           <p className="cart__product__quantity">{quantity}</p>
         </div>
         <div>
-          <p className="cart__product__price">R$ {totalPrice}</p>
+          <p className="cart__product__price">{totalPrice}</p>
         </div>
       </div>
     </li>
