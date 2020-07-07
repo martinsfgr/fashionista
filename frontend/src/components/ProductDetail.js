@@ -20,7 +20,6 @@ function ProductDetail ({ product }) {
   }
 
   const handleCart = (product, size, quantity) => {
-
     const matchProduct = cart.products.find(item => item.product.name === product.name && item.size === size);
 
     matchProduct ? dispatch(editProductQuantity({
@@ -34,10 +33,7 @@ function ProductDetail ({ product }) {
     }))
   }
 
-  console.log('O produto é', product);
   console.log(size);
-  console.log(quantity);
-  console.log('Carrinho: ', cart.products);
 
   return (
     <div className="product__container">
@@ -61,17 +57,19 @@ function ProductDetail ({ product }) {
         </div>
 
         <div className="product__size">
-          {product.sizes ? product.sizes.map(size => {
-            if (size.available) {
+          {product.sizes ? product.sizes.map(singleSize => {
+            if (singleSize.available) {
               return <button
-                key={size.sku}
-                onClick={() => handleSize(size.size)}
-              >{size.size}</button>
+                className={size === singleSize.size ? 'active' : null}
+                key={singleSize.sku}
+                onClick={() => handleSize(singleSize.size)}
+              >{singleSize.size}</button>
             }
+            return null
           }) : null}
         </div>
 
-        <div className="product_quantity">
+        <div className="product__quantity">
           <label>Selecione a quantidade:</label>
           <input 
             type="number" 
