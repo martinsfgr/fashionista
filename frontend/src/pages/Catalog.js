@@ -22,9 +22,9 @@ function Catalog() {
   }, [dispatch]);
 
   return (
-    <section>
+    <section className="catalog__container">
       <p className="catalog__length">
-        {data.products.length} itens
+        {data.products.length} itens encontrados.
       </p>
 
       <ul className="catalog">
