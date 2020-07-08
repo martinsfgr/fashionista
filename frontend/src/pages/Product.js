@@ -18,8 +18,6 @@ function Product() {
     getProduct();
   }, []);
 
-  console.log(product);
-
   return (
     <ProductDetail product={product} />
   )

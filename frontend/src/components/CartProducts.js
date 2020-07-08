@@ -20,6 +20,7 @@ function CartProduct ({ product, size, quantity }) {
     const id = product.style;
 
     history.push(`/produto/${productName}/${id}/`);
+    window.location.reload();
     dispatch(toggleCart(false));
   }
 

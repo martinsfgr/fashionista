@@ -47,7 +47,6 @@ function Cart () {
       </div>
       <div className="search__products">
         {products.length > 0 ? products.map(product => {
-          console.log(product);
           return <div key={product.code_color}>
             <SearchProducts product={product} />
           </div>

@@ -9,7 +9,7 @@ import Product from './pages/Product';
 function Routes() {
   return (
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <Switch>
         <Route path="/" exact component={Catalog} />
         <Route path="/produto/:name/:id" component={Product} />

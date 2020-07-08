@@ -17,6 +17,7 @@ function SearchProduct ({ product }) {
     const id = product.style;
 
     history.push(`/produto/${productName}/${id}/`);
+    window.location.reload();
     dispatch(toggleSearch(false));
   }
 
