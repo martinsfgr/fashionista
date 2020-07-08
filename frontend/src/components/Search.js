@@ -8,6 +8,8 @@ import catalogData from '../data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import SearchProducts from '../components/SearchProducts';
+
 function Cart () {
   const dispatch = useDispatch();
 
@@ -30,8 +32,6 @@ function Cart () {
     dispatch(searchProducts(searchedProducts));
   }
 
-  console.log('Produtos da pesquisa', products);
-
   return (
     <div className={isSearchActive ? "search__container active" : "search__container"}>
       <div>
@@ -42,8 +42,16 @@ function Cart () {
           onClick={() => handleSearch()}
         />
       </div>
-      <div>
+      <div className="search__input">
         <input type="text" onChange={(event) => handleChange(event)} />
+      </div>
+      <div className="search__products">
+        {products.length > 0 ? products.map(product => {
+          console.log(product);
+          return <div key={product.code_color}>
+            <SearchProducts product={product} />
+          </div>
+        }) : <div className="search__notfound">Nenhum item encontrado.</div>}
       </div>
     </div>
   )
