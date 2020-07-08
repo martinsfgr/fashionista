@@ -15,6 +15,33 @@ body {
   .cart__container.active {
     display: inline; }
 
+.catalog__product .catalog__product__apresentation .catalog__product__discount_percentage {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  margin-right: 7px;
+  position: absolute;
+  right: 0;
+  width: 60px; }
+.catalog__product .catalog__product__apresentation .catalog__product__image {
+  width: 100%; }
+.catalog__product .catalog__product__name {
+  margin: 7px 0 0 0;
+  text-align: center; }
+.catalog__product .catalog__product__prices {
+  align-items: center;
+  display: flex;
+  justify-content: center; }
+  .catalog__product .catalog__product__prices .catalog__product__regular_price, .catalog__product .catalog__product__prices .catalog__product__r {
+    margin: 3px 0 3px 0; }
+  .catalog__product .catalog__product__prices .catalog__product__regular_price-sale {
+    font-size: 0.85rem;
+    margin-right: 4px;
+    text-decoration: line-through; }
+
 nav {
   align-items: center;
   display: flex;
@@ -54,6 +81,8 @@ nav {
     color: grey;
     font-size: 0.65rem; }
   .catalog__container .catalog {
-    list-style: none; }
+    list-style: none;
+    margin-top: 5px;
+    padding: 0; }
 
 /*# sourceMappingURL=index.css.map */

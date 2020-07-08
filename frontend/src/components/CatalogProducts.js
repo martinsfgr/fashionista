@@ -22,9 +22,19 @@ function CatalogProduct ({ product }) {
         <img src={product.image ? product.image : placeholderImg} className="catalog__product__image" alt={product.name} />
       </div>
       <h3 className="catalog__product__name">{product.name}</h3>
-      <div>
-        {product.on_sale ? <p className="catalog__product__actual_price">{product.actual_price}</p> : null}
-        <p className="catalog__product__regular_price">{product.regular_price}</p>
+      <div className="catalog__product__prices">
+        <p 
+          className={product.on_sale ?
+           "catalog__product__regular_price-sale" :
+           "catalog__product__regular_price"}
+        >
+          {product.regular_price}
+        </p>
+        {product.on_sale ? 
+        <p className="catalog__product__actual_price">
+          {product.actual_price}
+        </p>
+        : null}
       </div>
     </li>
   )
