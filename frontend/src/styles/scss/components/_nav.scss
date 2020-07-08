@@ -1,11 +1,13 @@
 nav {
   align-items: center;
+  background-color: white;
   display: flex;
   height: 10vh;
   justify-content: space-between;
   padding: 10px 20px;
   position: fixed;
   width: 100%;
+  z-index: 1;
 
   .navbar__infos {
     align-items: center;
