@@ -23,9 +23,9 @@ function Catalog() {
 
   return (
     <section className="catalog__container">
-      <p className="catalog__length">
+      {/* <p className="catalog__length">
         {data.products.length} itens encontrados.
-      </p>
+      </p> */}
 
       <ul className="catalog">
         {data.products.map(product => (

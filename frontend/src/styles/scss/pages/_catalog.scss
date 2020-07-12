@@ -1,14 +1,44 @@
 .catalog__container {
-  padding: 42px 7px 0 7px;
+  background-color: #f9f9f9;
+  padding: 70px 7px 0 7px;
+
+  @include breakpoint-for(sm) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @include breakpoint-for(xl) {
+    padding-top: 84px;
+  }
 
   .catalog__length {
     color: grey;
     font-size: 0.65rem;
+    margin-bottom: 6px;
+    margin-top: 14px;
   }
 
   .catalog {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin-top: 5px;
     padding: 0;
+
+    @include breakpoint-for(sm) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-for(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint-for(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 400px;
+      row-gap: 14px;
+    }
   }
 }

@@ -16,30 +16,62 @@ body {
     display: inline; }
 
 .catalog__product {
-  margin-bottom: 12px; }
-  .catalog__product .catalog__product__apresentation .catalog__product__discount_percentage {
-    align-items: center;
-    background-color: black;
-    color: white;
-    display: flex;
-    height: 20px;
-    justify-content: center;
-    margin-right: 7px;
-    position: absolute;
-    right: 0;
-    width: 60px; }
-  .catalog__product .catalog__product__apresentation .catalog__product__image {
+  margin-bottom: 12px;
+  width: 60%; }
+  @media (min-width: 576px) {
+    .catalog__product {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 100%; } }
+  @media (min-width: 576px) {
+    .catalog__product .catalog__product__apresentation {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 95%; } }
+  @media (min-width: 768px) {
+    .catalog__product .catalog__product__apresentation {
+      width: 100%; } }
+  .catalog__product .catalog__product__apresentation .container__discount_percentage {
     width: 100%; }
+    @media (min-width: 576px) {
+      .catalog__product .catalog__product__apresentation .container__discount_percentage {
+        width: 75%; } }
+    @media (min-width: 992px) {
+      .catalog__product .catalog__product__apresentation .container__discount_percentage {
+        width: 95%; } }
+    .catalog__product .catalog__product__apresentation .container__discount_percentage .catalog__product__discount_percentage {
+      align-items: center;
+      background-color: black;
+      border-radius: 5px 0 0 0;
+      color: white;
+      display: flex;
+      height: 20px;
+      justify-content: center;
+      position: absolute;
+      width: 60px; }
+  .catalog__product .catalog__product__apresentation .catalog__product__image {
+    border-radius: 5px;
+    width: 100%; }
+    @media (min-width: 576px) {
+      .catalog__product .catalog__product__apresentation .catalog__product__image {
+        width: 75%; } }
+    @media (min-width: 992px) {
+      .catalog__product .catalog__product__apresentation .catalog__product__image {
+        width: 95%; } }
   .catalog__product .catalog__product__name {
-    font-size: 1rem;
-    margin: 7px 0 0 0;
+    font-size: 0.85rem;
+    margin: 5px 0 0 0;
     text-align: center; }
   .catalog__product .catalog__product__prices {
     align-items: center;
     display: flex;
     font-size: 0.85rem;
     justify-content: center; }
-    .catalog__product .catalog__product__prices .catalog__product__regular_price, .catalog__product .catalog__product__prices .catalog__product__r {
+    .catalog__product .catalog__product__prices .catalog__product__regular_price,
+    .catalog__product .catalog__product__prices .catalog__product__regular_price-sale,
+    .catalog__product .catalog__product__prices .catalog__product__actual_price {
       margin: 0; }
     .catalog__product .catalog__product__prices .catalog__product__regular_price-sale {
       font-size: 0.85rem;
@@ -82,13 +114,38 @@ nav {
     display: inline; }
 
 .catalog__container {
-  padding: 42px 7px 0 7px; }
+  background-color: #f9f9f9;
+  padding: 70px 7px 0 7px; }
+  @media (min-width: 576px) {
+    .catalog__container {
+      padding-left: 25px;
+      padding-right: 25px; } }
+  @media (min-width: 1200px) {
+    .catalog__container {
+      padding-top: 84px; } }
   .catalog__container .catalog__length {
     color: grey;
-    font-size: 0.65rem; }
+    font-size: 0.65rem;
+    margin-bottom: 6px;
+    margin-top: 14px; }
   .catalog__container .catalog {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin-top: 5px;
     padding: 0; }
+    @media (min-width: 576px) {
+      .catalog__container .catalog {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 768px) {
+      .catalog__container .catalog {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 992px) {
+      .catalog__container .catalog {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 400px;
+        row-gap: 14px; } }
 
 /*# sourceMappingURL=index.css.map */
