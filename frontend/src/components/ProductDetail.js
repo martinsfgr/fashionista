@@ -33,8 +33,6 @@ function ProductDetail ({ product }) {
     }))
   }
 
-  console.log(size);
-
   return (
     <div className="product__container">
       <div className="product__image">
@@ -46,13 +44,13 @@ function ProductDetail ({ product }) {
           {product.name}
         </h3>
 
-        <div>
+        <div className="product__payment">
           <p className="product__price">
             {product.regular_price}
           </p>
 
           <p className="product__installments">
-            {product.installments}
+            em até {product.installments}
           </p>
         </div>
 
@@ -70,7 +68,7 @@ function ProductDetail ({ product }) {
         </div>
 
         <div className="product__quantity">
-          <label>Selecione a quantidade:</label>
+          <label>Quantidade:</label>
           <input 
             type="number" 
             id="quantity" 
@@ -81,7 +79,7 @@ function ProductDetail ({ product }) {
           />
         </div>
 
-        <button onClick={() => handleCart(product, size, quantity)}>Adicionar ao carrinho</button>
+        <button className="product__button" onClick={() => handleCart(product, size, quantity)}>Adicionar ao carrinho</button>
       </div>
 
     </div>

@@ -10,8 +10,10 @@
   }
   
   .catalog__product__apresentation {
+    
     @include breakpoint-for(sm) {
       align-items: center;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       width: 95%;
@@ -60,12 +62,14 @@
   }
 
   .catalog__product__name {
+    cursor: pointer;
     font-size: 0.85rem;
     margin: 5px 0 0 0;
     text-align: center;
   }
 
   .catalog__product__prices {
+    cursor: pointer;
     align-items: center;
     display: flex;
     font-size: 0.85rem;
