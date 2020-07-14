@@ -7,6 +7,7 @@ function ProductDetail ({ product }) {
   const dispatch = useDispatch();
 
   const cart = useSelector(state => state.cart);
+  console.log(cart);
 
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(1);
