@@ -121,6 +121,7 @@ nav {
     @media (min-width: 992px) {
       .product__container .product__image {
         border: 1px solid #4c4c4c;
+        border-radius: 15px;
         height: 30%;
         margin: 0 13px;
         width: 45%; } }

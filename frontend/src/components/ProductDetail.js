@@ -27,7 +27,7 @@ function ProductDetail ({ product }) {
       product: product,
       size: size,
       quantity: quantity,
-    })) : dispatch(addToCart({
+    })) : size === '' ? alert('É necessário escolher um tamanho para o produto.') : dispatch(addToCart({
       product: product,
       size: size,
       quantity: quantity,
