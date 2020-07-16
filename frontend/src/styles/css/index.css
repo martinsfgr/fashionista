@@ -48,12 +48,14 @@ body {
   display: flex;
   margin-bottom: 7px; }
   .cart__product .cart__product__apresentation {
+    cursor: pointer;
     width: 100px; }
     .cart__product .cart__product__apresentation .cart__product__image {
       width: 100%; }
   .cart__product .cart__product__infos {
     margin-left: 14px; }
     .cart__product .cart__product__infos .cart__product__name {
+      cursor: pointer;
       font-size: 0.95rem;
       margin: 0; }
     .cart__product .cart__product__infos .cart__product__size {

@@ -3,6 +3,7 @@
   margin-bottom: 7px;
 
   .cart__product__apresentation {
+    cursor: pointer;
     width: 100px;
 
     .cart__product__image {
@@ -14,6 +15,7 @@
     margin-left: 14px;
 
     .cart__product__name {
+      cursor: pointer;
       font-size: 0.95rem;
       margin: 0;
     }

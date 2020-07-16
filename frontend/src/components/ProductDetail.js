@@ -67,7 +67,6 @@ function ProductDetail ({ product }) {
           <input 
             type="number" 
             id="quantity" 
-            defaultValue="1"
             value={quantity}
             min="1" 
             max="5"

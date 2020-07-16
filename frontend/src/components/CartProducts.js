@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { toggleCart } from '../store/actions/cart';
+import { toggleCart, editProductQuantity } from '../store/actions/cart';
 
 import { formatProductName, formatProductPrice, formatProductInstallments, convertToBRL } from '../utils';
 
@@ -26,6 +26,10 @@ function CartProduct ({ product, size, quantity }) {
     dispatch(toggleCart(false));
   }
 
+  const handleQuantity = (product, size, quantity) => {
+    dispatch(editProductQuantity(product, size, quantity));
+  }
+
   return (
     <li className="cart__product">
       <div className="cart__product__apresentation" onClick={() => handleProductDetails(product)}>
@@ -38,9 +42,23 @@ function CartProduct ({ product, size, quantity }) {
           </p>
           <p className="cart__product__size">Tam: {size}</p>
           <p className="cart__product__quantity">
-            <span className="cart__product__decrease">-</span>
+            <span 
+              className="cart__product__decrease"
+              onClick={() => handleQuantity({
+                product: product,
+                size: size,
+                quantity: -1
+              })}
+            >-</span>
             {quantity}
-            <span className="cart__product__increase">+</span>  
+            <span 
+              className="cart__product__increase"
+              onClick={() => handleQuantity({
+                product: product,
+                size: size,
+                quantity: 1
+              })}
+              >+</span>  
           </p>
         </div>
         <div>
