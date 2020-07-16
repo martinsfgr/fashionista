@@ -17,8 +17,18 @@ const convertToBRL = (number) => {
   }).format(number);
 }
 
+const formatProductInstallments = (productInstallments, quantity) => {
+  let productParcel = productInstallments.split(' ')[0];
+  let newInstallment = productInstallments.split(' ')[2].replace(',', '.');
+
+  newInstallment = convertToBRL(newInstallment * quantity)
+
+  return `${productParcel} ${newInstallment}`;
+}
+
 export {
   formatProductName,
   formatProductPrice,
+  formatProductInstallments,
   convertToBRL,
 }
