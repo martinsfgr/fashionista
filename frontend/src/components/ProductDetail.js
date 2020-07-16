@@ -24,7 +24,8 @@ function ProductDetail ({ product }) {
       quantity: quantity,
     }));
 
-
+    setSize('');
+    setQuantity(1);
   }
 
   return (
@@ -66,7 +67,8 @@ function ProductDetail ({ product }) {
           <input 
             type="number" 
             id="quantity" 
-            defaultValue="1" 
+            defaultValue="1"
+            value={quantity}
             min="1" 
             max="5"
             onChange={() => setQuantity(Number(event.target.value))}
