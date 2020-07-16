@@ -11,14 +11,6 @@ function ProductDetail ({ product }) {
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(1);
 
-  const handleSize = (size) => {
-    setSize(size);
-  }
-
-  const handleQuantity = (quantity) => {
-    setQuantity(quantity);
-  }
-
   const handleCart = (product, size, quantity) => {
     const matchProduct = cart.products.find(item => item.product.name === product.name && item.size === size);
 
@@ -30,7 +22,9 @@ function ProductDetail ({ product }) {
       product: product,
       size: size,
       quantity: quantity,
-    }))
+    }));
+
+
   }
 
   return (
@@ -60,7 +54,7 @@ function ProductDetail ({ product }) {
               return <button
                 className={size === singleSize.size ? 'active' : null}
                 key={singleSize.sku}
-                onClick={() => handleSize(singleSize.size)}
+                onClick={() => setSize(singleSize.size)}
               >{singleSize.size}</button>
             }
             return null
@@ -75,7 +69,7 @@ function ProductDetail ({ product }) {
             defaultValue="1" 
             min="1" 
             max="5"
-            onChange={() => handleQuantity(Number(event.target.value))}
+            onChange={() => setQuantity(Number(event.target.value))}
           />
         </div>
 
