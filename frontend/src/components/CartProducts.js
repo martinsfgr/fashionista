@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { toggleCart, editProductQuantity } from '../store/actions/cart';
+import { toggleCart, editProductQuantity, removeProduct } from '../store/actions/cart';
 
 import { formatProductName, formatProductPrice, formatProductInstallments, convertToBRL } from '../utils';
 
@@ -28,6 +28,10 @@ function CartProduct ({ product, size, quantity }) {
 
   const handleQuantity = (product, size, quantity) => {
     dispatch(editProductQuantity(product, size, quantity));
+  }
+
+  const handleRemove = (product, size) => {
+    dispatch(removeProduct(product, size));
   }
 
   return (
@@ -66,7 +70,13 @@ function CartProduct ({ product, size, quantity }) {
             {totalPrice} 
             <span className="cart__product__installments">em até {installments}</span>
           </p>
-          <p className="cart__product--remove">Remover item</p>
+          <p 
+            className="cart__product--remove"
+            onClick={() => handleRemove({
+              product: product,
+              size: size
+            })}
+          >Remover item</p>
         </div>
       </div>
     </li>

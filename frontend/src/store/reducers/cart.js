@@ -12,26 +12,32 @@ const cartReducer = (state=INITIAL_STATE, action) => {
         ...state,
         isActive: payload,
       }
-    
-    case 'ADD_PRODUCT_TO_CART':
-      const newProduct = [...state.products, payload]
-      return {
-        ...state,
-        products: newProduct,
-      }
-    
+      
+      case 'ADD_PRODUCT_TO_CART':
+        const newProduct = [...state.products, payload]
+        return {
+          ...state,
+          products: newProduct,
+        }
+        
     case 'EDIT_QUANTITY':
-      let cartProducts = state.products;
-
       return {
         ...state,
-        products: cartProducts.map(item => {
+        products: state.products.map(item => {
           if (payload.product.name === item.product.name && payload.size === item.size) {
-            return {...item, quantity: item.quantity + payload.quantity}
+            return { ...item, quantity: item.quantity + payload.quantity }
           }
 
-          return {...item}
+          return { ...item }
         })
+      }
+
+    case 'REMOVE_PRODUCT':
+      return {
+        ...state,
+        products: state.products.filter(item => {
+          return item.size !== payload.size && item.name !== payload.product.style;   
+        }),
       }
     
     default:

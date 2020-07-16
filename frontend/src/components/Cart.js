@@ -14,6 +14,8 @@ function Cart () {
   const cart = useSelector(state => state.cart.products);
   const isCartActive = useSelector(state => state.cart.isActive);
 
+  console.log(cart);
+
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
   }

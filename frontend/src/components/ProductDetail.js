@@ -66,7 +66,7 @@ function ProductDetail ({ product }) {
           <label>Quantidade:</label>
           <input 
             type="number" 
-            id="quantity" 
+            id="quantity"
             value={quantity}
             min="1" 
             max="5"
