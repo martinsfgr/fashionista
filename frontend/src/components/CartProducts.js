@@ -46,7 +46,7 @@ function CartProduct ({ product, size, quantity }) {
             {totalPrice} 
             <span className="cart__product__installments">em até {installments}</span>
           </p>
-          <p className="cart__product__remove">Remover item</p>
+          <p className="cart__product--remove">Remover item</p>
         </div>
       </div>
     </li>

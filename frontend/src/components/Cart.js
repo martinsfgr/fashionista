@@ -14,8 +14,6 @@ function Cart () {
   const cart = useSelector(state => state.cart.products);
   const isCartActive = useSelector(state => state.cart.isActive);
 
-  console.log(cart);
-
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
   }
@@ -37,13 +35,13 @@ function Cart () {
             product={item.product}
             size={item.size}
             quantity={item.quantity} 
-            key={item.product.code_color} 
+            key={Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}
           />
         ) : <p className="cart__empty">Não há nenhum produto no carrinho.</p>}
       </div>
 
       <div className="cart__subtotal">
-        <p>SUBTOTAL: </p>
+        <p className="cart__subtotal__info">SUBTOTAL: </p>
       </div>
     </div>
   )

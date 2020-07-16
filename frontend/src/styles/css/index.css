@@ -40,7 +40,7 @@ body {
     height: 10vh;
     position: fixed;
     width: 100%; }
-    .cart__container .cart__subtotal p {
+    .cart__container .cart__subtotal .cart__subtotal__info {
       color: white;
       padding: 0 20px; }
 
@@ -79,7 +79,7 @@ body {
         color: #4c4c4c;
         font-size: 0.75rem;
         margin-left: 5px; }
-    .cart__product .cart__product__infos .cart__product__remove {
+    .cart__product .cart__product__infos .cart__product--remove {
       color: #e03232;
       cursor: pointer;
       font-size: 0.75rem;
