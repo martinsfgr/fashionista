@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { toggleCart } from '../store/actions/cart';
 
-import { formatProductName, formatProductPrice, convertToBRL } from '../utils';
+import { formatProductName, formatProductPrice, formatProductInstallments, convertToBRL } from '../utils';
 
 import placeholderImg from '../assets/product-placeholder.png';
 
@@ -14,6 +14,8 @@ function CartProduct ({ product, size, quantity }) {
 
   const price = formatProductPrice(product.actual_price);
   const totalPrice = convertToBRL(price * quantity);
+
+  const installments = formatProductInstallments(product.installments, quantity);
 
   const handleProductDetails = (product) => {
     const productName = formatProductName(product.name);
@@ -32,11 +34,19 @@ function CartProduct ({ product, size, quantity }) {
       <div className="cart__product__infos">
         <div>
           <p className="cart__product__name">{product.name}</p>
-          <p className="cart__product__size">{size}</p>
-          <p className="cart__product__quantity">{quantity}</p>
+          <p className="cart__product__size">Tam: {size}</p>
+          <p className="cart__product__quantity">
+            <span className="cart__product__decrease">-</span>
+            {quantity}
+            <span className="cart__product__increase">+</span>  
+          </p>
         </div>
         <div>
-          <p className="cart__product__price">{totalPrice}</p>
+          <p className="cart__product__price">
+            {totalPrice} 
+            <span className="cart__product__installments">em até {installments}</span>
+          </p>
+          <p className="cart__product__remove">Remover item</p>
         </div>
       </div>
     </li>

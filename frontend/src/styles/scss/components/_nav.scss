@@ -1,36 +1,41 @@
-nav {
-  align-items: center;
-  background-color: white;
-  display: flex;
-  height: 10vh;
-  justify-content: space-between;
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-
-  .navbar__infos {
+.navbar__container {
+  height: 100%;
+  
+  nav {
     align-items: center;
+    background-color: white;
     display: flex;
-    height: 100%;
-
-    .company__logo {
-      height: 95%;
-      margin-right: 12px;
-    }
-
-    .company__name {
-      font-weight: 400;
-    }
-  }
-
-  .navbar__icons {
-    display: flex;
+    height: 10vh;
     justify-content: space-between;
-    width: 55px;
-
-    .search-icon, .cart-icon {
-      cursor: pointer;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    
+    .navbar__infos {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      
+      .company__logo {
+        height: 95%;
+        margin-right: 12px;
+      }
+      
+      .company__name {
+        font-weight: 400;
+      }
+    }
+    
+    .navbar__icons {
+      display: flex;
+      justify-content: space-between;
+      width: 55px;
+      
+      .search-icon, .cart-icon {
+        cursor: pointer;
+      }
     }
   }
 }
+  

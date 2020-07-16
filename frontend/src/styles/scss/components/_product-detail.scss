@@ -1,4 +1,5 @@
 .product__container {
+  background-color: #f9f9f9;
   padding: 70px 7px 0 7px;
 
   @include breakpoint-for(lg) {
@@ -13,7 +14,7 @@
     width: 100%;
 
     @include breakpoint-for(lg) {
-      border: 1px solid #4c4c4c;
+      border: 2px solid #dfdfdf;
       border-radius: 15px;
       height: 30%;
       margin: 0 13px;

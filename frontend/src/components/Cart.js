@@ -14,22 +14,24 @@ function Cart () {
   const cart = useSelector(state => state.cart.products);
   const isCartActive = useSelector(state => state.cart.isActive);
 
+  console.log(cart);
+
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
   }
 
   return (
     <div className={isCartActive ? "cart__container active" : "cart__container"}>
-      <div>
-        <p>Carrinho</p>
+      <div className="cart__navbar">
         <FontAwesomeIcon 
           icon={faTimes}
-          className="fa-lg times"
+          className="fa-lg times cart__close-button"
           onClick={() => handleCart()}
         />
+        <p className="cart__title">Carrinho</p>
       </div>
 
-      <div>
+      <div className="cart__products">
         {cart.length > 0 ? cart.map(item => 
           <CartProducts 
             product={item.product}
@@ -37,7 +39,11 @@ function Cart () {
             quantity={item.quantity} 
             key={item.product.code_color} 
           />
-        ) : <div>Não há nenhum produto no carrinho.</div>}
+        ) : <p className="cart__empty">Não há nenhum produto no carrinho.</p>}
+      </div>
+
+      <div className="cart__subtotal">
+        <p>SUBTOTAL: </p>
       </div>
     </div>
   )

@@ -1,0 +1,61 @@
+.cart__product {
+  display: flex;
+  margin-bottom: 7px;
+
+  .cart__product__apresentation {
+    width: 100px;
+
+    .cart__product__image {
+      width: 100%;
+    }
+  }
+
+  .cart__product__infos {
+    margin-left: 14px;
+
+    .cart__product__name {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .cart__product__size {
+      color: #4c4c4c;
+      font-size: 0.75rem;
+      margin: 0;
+    }
+
+    .cart__product__quantity {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 7px 0;
+      width: 30%;
+
+      .cart__product__increase, .cart__product__decrease {
+        align-items: center;
+        border: 0.75px solid black;
+        display: flex;
+        height: 15px;
+        justify-content: center;
+        width: 15px;
+      }
+    }
+
+    .cart__product__price {
+      margin: 7px 0;
+
+      .cart__product__installments {
+        color: #4c4c4c;
+        font-size: 0.75rem;
+        margin-left: 5px;
+      }
+    }
+
+    .cart__product__remove {
+      color: rgb(224, 50, 50);
+      cursor: pointer;
+      font-size: 0.75rem;
+      margin: 7px 0;
+    }
+  }
+}
