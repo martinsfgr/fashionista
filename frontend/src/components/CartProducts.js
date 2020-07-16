@@ -27,13 +27,15 @@ function CartProduct ({ product, size, quantity }) {
   }
 
   return (
-    <li className="cart__product" onClick={() => handleProductDetails(product)}>
-      <div className="cart__product__apresentation">
+    <li className="cart__product">
+      <div className="cart__product__apresentation" onClick={() => handleProductDetails(product)}>
         <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} />
       </div>
       <div className="cart__product__infos">
         <div>
-          <p className="cart__product__name">{product.name}</p>
+          <p className="cart__product__name" onClick={() => handleProductDetails(product)}>
+            {product.name}
+          </p>
           <p className="cart__product__size">Tam: {size}</p>
           <p className="cart__product__quantity">
             <span className="cart__product__decrease">-</span>

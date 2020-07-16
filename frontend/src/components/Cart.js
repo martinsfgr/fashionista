@@ -18,6 +18,14 @@ function Cart () {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
   }
 
+  const handleKey = (product, size) => {
+    let selectedSize = product.sizes.find(item => {
+      return item.size === size;
+    });
+
+    return selectedSize.sku;
+  }
+
   return (
     <div className={isCartActive ? "cart__container active" : "cart__container"}>
       <div className="cart__navbar">
@@ -35,7 +43,7 @@ function Cart () {
             product={item.product}
             size={item.size}
             quantity={item.quantity} 
-            key={Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}
+            key={handleKey(item.product, item.size)}
           />
         ) : <p className="cart__empty">Não há nenhum produto no carrinho.</p>}
       </div>
