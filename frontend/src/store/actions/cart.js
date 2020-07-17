@@ -25,3 +25,9 @@ export const removeProduct = (product={}) => {
     payload: product,
   }
 }
+
+export const getSubtotal = () => {
+  return {
+    type: 'GET_SUBTOTAL',
+  }
+}

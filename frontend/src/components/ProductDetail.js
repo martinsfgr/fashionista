@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addToCart, editProductQuantity } from '../store/actions/cart';
+import { addToCart, editProductQuantity, getSubtotal } from '../store/actions/cart';
 
 function ProductDetail ({ product }) {
   const dispatch = useDispatch();
@@ -26,6 +26,7 @@ function ProductDetail ({ product }) {
 
     setSize('');
     setQuantity(1);
+    dispatch(getSubtotal());
   }
 
   return (

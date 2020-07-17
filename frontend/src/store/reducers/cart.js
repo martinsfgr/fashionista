@@ -1,6 +1,9 @@
+import { formatProductPrice, convertToBRL } from '../../utils';
+
 const INITIAL_STATE = {
   isActive: false,
   products: [],
+  subtotal: '',
 }
 
 const cartReducer = (state=INITIAL_STATE, action) => {
@@ -38,6 +41,17 @@ const cartReducer = (state=INITIAL_STATE, action) => {
         products: state.products.filter(item => {
           return item.size !== payload.size && item.name !== payload.product.style;   
         }),
+      }
+
+    case 'GET_SUBTOTAL':
+      const subtotalOrder = state.products.reduce((accumulator, item) => {
+        let productTotalPrice = formatProductPrice(item.product.actual_price) * item.quantity;
+        return accumulator + productTotalPrice;
+      }, 0); 
+
+      return {
+        ...state,
+        subtotal: convertToBRL(subtotalOrder),
       }
     
     default:

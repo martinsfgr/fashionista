@@ -18,7 +18,7 @@ function CatalogProduct ({ product }) {
   return (
     <li className="catalog__product" onClick={() => handleProductDetails(product)}>
       <div className="catalog__product__apresentation">
-        {product.on_sale ? <div class="container__discount_percentage">
+        {product.on_sale ? <div className="container__discount_percentage">
             <span className="catalog__product__discount_percentage">
               -${product.discount_percentage}
             </span>

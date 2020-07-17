@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 import { toggleCart, editProductQuantity, removeProduct } from '../store/actions/cart';
 
-import { formatProductName, formatProductPrice, formatProductInstallments, convertToBRL } from '../utils';
+import { 
+  formatProductName, 
+  formatProductPrice, 
+  formatProductInstallments, 
+  convertToBRL 
+} from '../utils';
 
 import placeholderImg from '../assets/product-placeholder.png';
 
@@ -51,7 +56,7 @@ function CartProduct ({ product, size, quantity }) {
                 }))
               }}
             >-</span>
-            {quantity}
+              {quantity}
             <span 
               className="cart__product__increase"
               onClick={() => dispatch(editProductQuantity({

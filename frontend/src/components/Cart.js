@@ -12,9 +12,10 @@ function Cart () {
   const dispatch = useDispatch();
 
   const cart = useSelector(state => state.cart.products);
+  const subtotal = useSelector(state => state.cart.subtotal);
   const isCartActive = useSelector(state => state.cart.isActive);
 
-  console.log(cart);
+  console.log(cart, subtotal);
 
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
@@ -51,7 +52,7 @@ function Cart () {
       </div>
 
       <div className="cart__subtotal">
-        <p className="cart__subtotal__info">SUBTOTAL: </p>
+        <p className="cart__subtotal__info">SUBTOTAL: {subtotal !== '' ? subtotal : 'R$ 0,00'} </p>
       </div>
     </div>
   )
