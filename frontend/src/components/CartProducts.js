@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { toggleCart, editProductQuantity, removeProduct } from '../store/actions/cart';
+import { toggleCart, editProductQuantity, removeProduct, getSubtotal } from '../store/actions/cart';
 
 import { 
   formatProductName, 
@@ -31,6 +31,16 @@ function CartProduct ({ product, size, quantity }) {
     dispatch(toggleCart(false));
   }
 
+  const handleProductQuantity = ({ product, size, quantity }) => {
+    dispatch(editProductQuantity({
+      product: product,
+      size: size,
+      quantity: quantity,
+    }));
+
+    dispatch(getSubtotal());
+  }
+
   return (
     <li className="cart__product">
       <div className="cart__product__apresentation" onClick={() => handleProductDetails(product)}>
@@ -46,11 +56,11 @@ function CartProduct ({ product, size, quantity }) {
             <span 
               className="cart__product__decrease"
               onClick={() => {
-                quantity !== 1 ? dispatch(editProductQuantity({
+                quantity !== 1 ? handleProductQuantity({
                   product: product,
                   size: size,
                   quantity: -1
-                })) : dispatch(removeProduct({
+                }) : dispatch(removeProduct({
                   product: product,
                   size: size
                 }))
@@ -59,11 +69,11 @@ function CartProduct ({ product, size, quantity }) {
               {quantity}
             <span 
               className="cart__product__increase"
-              onClick={() => dispatch(editProductQuantity({
+              onClick={() => handleProductQuantity({
                 product: product,
                 size: size,
                 quantity: 1
-              }))}
+              })}
               >+</span>  
           </p>
         </div>
