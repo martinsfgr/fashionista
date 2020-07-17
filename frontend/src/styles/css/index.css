@@ -81,7 +81,7 @@ body {
         color: #4c4c4c;
         font-size: 0.75rem;
         margin-left: 5px; }
-    .cart__product .cart__product__infos .cart__product--remove {
+    .cart__product .cart__product__infos .cart__product__remove-button {
       color: #e03232;
       cursor: pointer;
       font-size: 0.75rem;

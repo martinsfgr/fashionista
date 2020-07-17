@@ -19,7 +19,6 @@ function CartProduct ({ product, size, quantity }) {
 
   const price = formatProductPrice(product.actual_price);
   const totalPrice = convertToBRL(price * quantity);
-
   const installments = formatProductInstallments(product.installments, quantity);
 
   const handleProductDetails = (product) => {
@@ -41,17 +40,39 @@ function CartProduct ({ product, size, quantity }) {
     dispatch(getSubtotal());
   }
 
+  const handleRemoveProduct = ({ product, size }) => {
+    dispatch(removeProduct({
+      product: product,
+      size: size,
+    }));
+
+    dispatch(getSubtotal());
+  }
+
   return (
     <li className="cart__product">
-      <div className="cart__product__apresentation" onClick={() => handleProductDetails(product)}>
-        <img className="cart__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} />
+      <div 
+        className="cart__product__apresentation" 
+        onClick={() => handleProductDetails(product)}
+      >
+        <img 
+          className="cart__product__image" 
+          src={product.image ? product.image : placeholderImg} 
+          alt={product.name} 
+        />
       </div>
+
       <div className="cart__product__infos">
         <div>
-          <p className="cart__product__name" onClick={() => handleProductDetails(product)}>
+          <p 
+            className="cart__product__name"
+            onClick={() => handleProductDetails(product)}
+          >
             {product.name}
           </p>
+
           <p className="cart__product__size">Tam: {size}</p>
+
           <p className="cart__product__quantity">
             <span 
               className="cart__product__decrease"
@@ -60,12 +81,14 @@ function CartProduct ({ product, size, quantity }) {
                   product: product,
                   size: size,
                   quantity: -1
-                }) : dispatch(removeProduct({
+                }) : handleRemoveProduct({
                   product: product,
                   size: size
-                }))
+                })
               }}
-            >-</span>
+            >
+              -
+            </span>
               {quantity}
             <span 
               className="cart__product__increase"
@@ -74,21 +97,29 @@ function CartProduct ({ product, size, quantity }) {
                 size: size,
                 quantity: 1
               })}
-              >+</span>  
+            >
+              +
+            </span>  
           </p>
         </div>
+
         <div>
           <p className="cart__product__price">
             {totalPrice} 
-            <span className="cart__product__installments">em até {installments}</span>
+            <span className="cart__product__installments">
+              em até {installments}
+            </span>
           </p>
+
           <p 
-            className="cart__product--remove"
-            onClick={() => dispatch(removeProduct({
+            className="cart__product__remove-button"
+            onClick={() => handleRemoveProduct({
               product: product,
               size: size,
-            }))}
-          >Remover item</p>
+            })}
+          >
+            Remover item
+          </p>
         </div>
       </div>
     </li>
