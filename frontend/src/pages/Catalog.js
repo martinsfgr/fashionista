@@ -23,10 +23,6 @@ function Catalog() {
 
   return (
     <section className="catalog__container">
-      {/* <p className="catalog__length">
-        {data.products.length} itens encontrados.
-      </p> */}
-
       <ul className="catalog">
         {data.products.map(product => (
           <CatalogProducts product={product} key={product.code_color} />
