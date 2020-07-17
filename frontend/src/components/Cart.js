@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { toggleCart } from '../store/actions/cart';
 
+import CartProducts from '../components/CartProducts';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
-import CartProducts from '../components/CartProducts';
 
 function Cart () {
   const dispatch = useDispatch();
@@ -14,8 +14,6 @@ function Cart () {
   const cart = useSelector(state => state.cart.products);
   const subtotal = useSelector(state => state.cart.subtotal);
   const isCartActive = useSelector(state => state.cart.isActive);
-
-  console.log(cart, subtotal);
 
   const handleCart = () => {
     isCartActive ? dispatch(toggleCart(false)) : dispatch(toggleCart(true));
@@ -37,6 +35,7 @@ function Cart () {
           className="fa-lg times cart__close-button"
           onClick={() => handleCart()}
         />
+
         <p className="cart__title">Carrinho</p>
       </div>
 
@@ -52,7 +51,9 @@ function Cart () {
       </div>
 
       <div className="cart__subtotal">
-        <p className="cart__subtotal__info">SUBTOTAL: {subtotal !== '' ? subtotal : 'R$ 0,00'} </p>
+        <p className="cart__subtotal__info">
+          SUBTOTAL: {subtotal !== '' ? subtotal : 'R$ 0,00'}
+        </p>
       </div>
     </div>
   )
