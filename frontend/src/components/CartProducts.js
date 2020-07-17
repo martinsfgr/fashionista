@@ -26,14 +26,6 @@ function CartProduct ({ product, size, quantity }) {
     dispatch(toggleCart(false));
   }
 
-  const handleQuantity = (product, size, quantity) => {
-    dispatch(editProductQuantity(product, size, quantity));
-  }
-
-  const handleRemove = (product, size) => {
-    dispatch(removeProduct(product, size));
-  }
-
   return (
     <li className="cart__product">
       <div className="cart__product__apresentation" onClick={() => handleProductDetails(product)}>
@@ -48,20 +40,25 @@ function CartProduct ({ product, size, quantity }) {
           <p className="cart__product__quantity">
             <span 
               className="cart__product__decrease"
-              onClick={() => handleQuantity({
-                product: product,
-                size: size,
-                quantity: -1
-              })}
+              onClick={() => {
+                quantity !== 1 ? dispatch(editProductQuantity({
+                  product: product,
+                  size: size,
+                  quantity: -1
+                })) : dispatch(removeProduct({
+                  product: product,
+                  size: size
+                }))
+              }}
             >-</span>
             {quantity}
             <span 
               className="cart__product__increase"
-              onClick={() => handleQuantity({
+              onClick={() => dispatch(editProductQuantity({
                 product: product,
                 size: size,
                 quantity: 1
-              })}
+              }))}
               >+</span>  
           </p>
         </div>
@@ -72,10 +69,10 @@ function CartProduct ({ product, size, quantity }) {
           </p>
           <p 
             className="cart__product--remove"
-            onClick={() => handleRemove({
+            onClick={() => dispatch(removeProduct({
               product: product,
-              size: size
-            })}
+              size: size,
+            }))}
           >Remover item</p>
         </div>
       </div>
