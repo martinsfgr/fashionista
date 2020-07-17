@@ -18,14 +18,21 @@ function CatalogProduct ({ product }) {
   return (
     <li className="catalog__product" onClick={() => handleProductDetails(product)}>
       <div className="catalog__product__apresentation">
-        {product.on_sale ? <div className="container__discount_percentage">
+        {product.on_sale ? 
+          <div className="container__discount_percentage">
             <span className="catalog__product__discount_percentage">
               -${product.discount_percentage}
             </span>
           </div> : null}
-        <img src={product.image ? product.image : placeholderImg} className="catalog__product__image" alt={product.name} />
+
+        <img 
+          src={product.image ? product.image : placeholderImg} 
+          className="catalog__product__image" alt={product.name}
+        />
       </div>
+
       <h3 className="catalog__product__name">{product.name}</h3>
+
       <div className="catalog__product__prices">
         <p
           className={product.on_sale ?
@@ -34,10 +41,11 @@ function CatalogProduct ({ product }) {
         >
           {product.regular_price}
         </p>
+
         {product.on_sale ? 
-        <p className="catalog__product__actual_price">
-          {product.actual_price}
-        </p>
+          <p className="catalog__product__actual_price">
+            {product.actual_price}
+          </p>
         : null}
       </div>
     </li>
