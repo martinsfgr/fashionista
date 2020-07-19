@@ -296,13 +296,42 @@ body {
           width: 55%; } }
 
 .search__container {
-  background-color: grey;
-  display: none;
+  background-color: #f9f9f9;
   height: 100vh;
+  left: 100%;
   position: fixed;
-  width: 100vw; }
+  transition: left 0.5s ease-in-out;
+  width: 100vw;
+  z-index: 2; }
   .search__container.active {
-    display: inline; }
+    left: 0; }
+  .search__container .search__navbar {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    height: 10vh;
+    justify-content: center; }
+    .search__container .search__navbar .search__close-button {
+      cursor: pointer;
+      left: 20px;
+      position: absolute; }
+    .search__container .search__navbar .search__title {
+      margin: 0; }
+  .search__container .search__input {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 14px; }
+    .search__container .search__input input {
+      border: medium none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bolder;
+      padding: 12px;
+      width: 85%; }
+  .search__container .search__products .search__notfound {
+    margin-top: 12px;
+    text-align: center; }
 
 .catalog__container {
   background-color: #f9f9f9;
