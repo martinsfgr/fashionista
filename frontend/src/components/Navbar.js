@@ -47,17 +47,23 @@ function Nav() {
         </div>
         
         <div className="navbar__icons">
-          <FontAwesomeIcon 
-            className="fa-lg search-icon"
-            icon={faSearch}
-            onClick={() => handleSearch()}
-          />
+          <div className="container__search__icon">
+            <FontAwesomeIcon 
+              className="fa-lg search-icon"
+              icon={faSearch}
+              onClick={() => handleSearch()}
+            />
+          </div>
 
-          <FontAwesomeIcon 
-            className="fa-lg cart-icon" 
-            icon={faShoppingBag}
-            onClick={() => handleCart()}
-          />
+          <div className="container__cart__icon">
+            <FontAwesomeIcon 
+              className="fa-lg cart-icon" 
+              icon={faShoppingBag}
+              onClick={() => handleCart()}
+            />
+            
+            <p className="cart__length">2</p>
+          </div>
         </div>
       </nav>
 

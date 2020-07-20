@@ -4,7 +4,6 @@
   nav {
     align-items: center;
     background-color: white;
-    cursor: pointer;
     display: flex;
     height: 10vh;
     justify-content: space-between;
@@ -19,22 +18,43 @@
       height: 100%;
       
       .company__logo {
+        cursor: pointer;
         height: 95%;
         margin-right: 12px;
       }
       
       .company__name {
+        cursor: pointer;
         font-weight: 400;
       }
     }
     
     .navbar__icons {
+      align-items: center;
       display: flex;
       justify-content: space-between;
       width: 55px;
       
       .search-icon, .cart-icon {
         cursor: pointer;
+      }
+
+      .container__cart__icon {
+
+        .cart__length {
+          align-items: center;
+          background-color: rgb(224, 50, 50);
+          border-radius: 100%;
+          color: white;
+          display: flex;
+          font-size: 0.65rem;
+          height: 15px;
+          justify-content: center;
+          position: absolute;
+          right: 15px;
+          top: 0;
+          width: 15px;
+        }
       }
     }
   }

@@ -158,7 +158,6 @@ body {
   .navbar__container nav {
     align-items: center;
     background-color: white;
-    cursor: pointer;
     display: flex;
     height: 10vh;
     justify-content: space-between;
@@ -171,16 +170,32 @@ body {
       display: flex;
       height: 100%; }
       .navbar__container nav .navbar__infos .company__logo {
+        cursor: pointer;
         height: 95%;
         margin-right: 12px; }
       .navbar__container nav .navbar__infos .company__name {
+        cursor: pointer;
         font-weight: 400; }
     .navbar__container nav .navbar__icons {
+      align-items: center;
       display: flex;
       justify-content: space-between;
       width: 55px; }
       .navbar__container nav .navbar__icons .search-icon, .navbar__container nav .navbar__icons .cart-icon {
         cursor: pointer; }
+      .navbar__container nav .navbar__icons .container__cart__icon .cart__length {
+        align-items: center;
+        background-color: #e03232;
+        border-radius: 100%;
+        color: white;
+        display: flex;
+        font-size: 0.65rem;
+        height: 15px;
+        justify-content: center;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        width: 15px; }
 
 .product__container {
   background-color: #f9f9f9;
