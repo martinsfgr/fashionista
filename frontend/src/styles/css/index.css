@@ -329,9 +329,40 @@ body {
       font-weight: bolder;
       padding: 12px;
       width: 85%; }
-  .search__container .search__products .search__notfound {
-    margin-top: 12px;
-    text-align: center; }
+  .search__container .search__products {
+    height: 80%;
+    overflow-y: auto;
+    padding: 10px 20px; }
+    .search__container .search__products .search__notfound {
+      margin-top: 12px;
+      text-align: center; }
+
+.search__product {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  margin-bottom: 14px; }
+  .search__product .search__product__apresentation {
+    cursor: pointer;
+    width: 100px; }
+    .search__product .search__product__apresentation .search__product__image {
+      width: 85%; }
+  .search__product .search__product__infos {
+    display: flex;
+    flex-direction: column;
+    padding: 4px; }
+    .search__product .search__product__infos .search__product__name {
+      cursor: pointer;
+      font-size: 0.85rem;
+      margin: 0; }
+    .search__product .search__product__infos .search__product__price {
+      align-items: center;
+      display: flex;
+      font-size: 0.85rem;
+      margin: 0; }
+      .search__product .search__product__infos .search__product__price .search__product__installments {
+        color: #4c4c4c;
+        font-size: 0.75rem;
+        margin-left: 5px; }
 
 .catalog__container {
   background-color: #f9f9f9;

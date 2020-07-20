@@ -22,17 +22,33 @@ function SearchProduct ({ product }) {
   }
 
   return (
-    <li className="search__product" onClick={() => handleProductDetails(product)}>
+    <li className="search__product">
       <div className="search__product__apresentation">
-        {/* <img className="search__product__image" src={product.image ? product.image : placeholderImg} alt={product.name} /> */}
+        <img 
+          className="search__product__image"
+          src={product.image ? product.image : placeholderImg} 
+          alt={product.name}
+          onClick={() => handleProductDetails(product)}
+        />
       </div>
+
       <div className="search__product__infos">
         <div>
-          <p className="search__product__name">{product.name}</p>
+          <p 
+            className="search__product__name"
+            onClick={() => handleProductDetails(product)}
+          >
+            {product.name}
+          </p>
         </div>
+
         <div>
-          <p className="search__product__price">{product.actual_price}</p>
-          <p className="search__product__installments">{product.installments}</p>
+          <p className="search__product__price">
+            {product.actual_price}
+            <span className="search__product__installments">
+              {product.installments}
+            </span>
+          </p>
         </div>
       </div>
     </li>

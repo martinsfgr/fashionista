@@ -1,0 +1,39 @@
+.search__product {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  margin-bottom: 14px;
+
+  .search__product__apresentation {
+    cursor: pointer;
+    width: 100px;
+
+    .search__product__image {
+      width: 85%;
+    }
+  }
+
+  .search__product__infos {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+
+    .search__product__name {
+      cursor: pointer;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .search__product__price {
+      align-items: center;
+      display: flex;
+      font-size: 0.85rem;
+      margin: 0;
+
+      .search__product__installments {
+        color: #4c4c4c;
+        font-size: 0.75rem;
+        margin-left: 5px;
+      }
+    }
+  }
+}
