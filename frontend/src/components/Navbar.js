@@ -14,12 +14,13 @@ import Search from './Search';
 import logoImg from '../assets/logo.png';
 
 function Nav() {
+  const history = useHistory();
   const dispatch = useDispatch();
+
   const isCartActive = useSelector(state => state.cart.isActive);
   const isSearchActive = useSelector(state => state.search.isActive);
+  const cart = useSelector(state => state.cart.products);
  
-  const history = useHistory();
-
   const pushToHome = () => {
     history.push('/');
   }
@@ -31,6 +32,10 @@ function Nav() {
   const handleSearch = () => {
     isSearchActive ? dispatch(toggleSearch(false)) : dispatch(toggleSearch(true));
   }
+
+  let cartLength = cart.reduce((accumulator, product) => {
+    return accumulator += product.quantity;
+  }, 0);
 
   return (
     <div className="navbar__container">
@@ -62,7 +67,7 @@ function Nav() {
               onClick={() => handleCart()}
             />
             
-            <p className="cart__length">2</p>
+            <p className="cart__length">{cartLength}</p>
           </div>
         </div>
       </nav>
