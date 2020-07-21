@@ -15,7 +15,20 @@ body {
   width: 100vw;
   z-index: 2; }
   .cart__container.active {
-    left: 0; }
+    left: calc(100% - 400px); }
+    .cart__container.active::before {
+      content: "";
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+      transition: background 0.8s ease-in-out 0s;
+      z-index: -1; }
+  @media (min-width: 992px) {
+    .cart__container {
+      width: 400px; } }
   .cart__container .cart__navbar {
     align-items: center;
     background-color: white;
@@ -40,6 +53,9 @@ body {
     height: 10vh;
     position: fixed;
     width: 100%; }
+    @media (min-width: 992px) {
+      .cart__container .cart__subtotal {
+        width: 400px; } }
     .cart__container .cart__subtotal .cart__subtotal__info {
       color: white;
       padding: 0 20px; }
