@@ -1,5 +1,5 @@
 .cart__container {
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   height: 100vh;
   left: 100%;
   position: fixed;
@@ -11,14 +11,14 @@
     left: calc(100% - 400px);
 
     &::before {
+      background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
       content: "";
+      height: 100vh;
+      left: 0px;
       position: fixed;
       top: 0px;
-      left: 0px;
+      transition: background 0.5s ease-in-out 0s;
       width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
-      transition: background 0.8s ease-in-out 0s;
       z-index: -1;
     }
   }
