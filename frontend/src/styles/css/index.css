@@ -23,7 +23,7 @@ body {
       left: 0px;
       position: fixed;
       top: 0px;
-      transition: background 0.5s ease-in-out 0s;
+      transition: background 0.5s ease-in-out;
       width: 100vw;
       z-index: -1; }
   @media (min-width: 992px) {
@@ -42,6 +42,7 @@ body {
     .cart__container .cart__navbar .cart__title {
       margin: 0; }
   .cart__container .cart__products {
+    background-color: #f9f9f9;
     height: 80%;
     overflow-y: auto;
     padding: 10px 20px; }
