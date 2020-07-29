@@ -6,25 +6,29 @@
   transition: left 0.5s ease-in-out;
   width: 100vw;
   z-index: 2;
-  
+
   &.active {
-    left: calc(100% - 400px);
-
-    &::before {
-      background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
-      content: "";
-      height: 100vh;
-      left: 0px;
-      position: fixed;
-      top: 0px;
-      transition: background 0.5s ease-in-out;
-      width: 100vw;
-      z-index: -1;
-    }
+    left: 0;
   }
-
+  
   @include breakpoint-for(lg) {
     width: 400px;
+
+    &.active {
+      left: calc(100% - 400px);
+  
+      &::before {
+        background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+        content: "";
+        height: 100vh;
+        left: 0px;
+        position: fixed;
+        top: 0px;
+        transition: background 0.5s ease-in-out;
+        width: 100vw;
+        z-index: -1;
+      }
+    }
   }
   
   .cart__navbar {
