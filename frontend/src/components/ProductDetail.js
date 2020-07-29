@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { addToCart, editProductQuantity, getSubtotal } from '../store/actions/cart';
 
+import placeholderImg from '../assets/product-placeholder.png';
+
 function ProductDetail ({ product }) {
   const dispatch = useDispatch();
 
@@ -32,7 +34,10 @@ function ProductDetail ({ product }) {
   return (
     <div className="product__container">
       <div className="product__image">
-        <img src={product.image} alt={product.name}/>
+        <img 
+          src={product.image ? product.image : placeholderImg} 
+          alt={product.name}
+        />
       </div>
 
       <div className="product__infos">
